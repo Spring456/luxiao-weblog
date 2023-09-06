@@ -2,7 +2,7 @@ module.exports = {
   title: "",
   description: "Welcome to your visit",
   theme: "reco",
-  base: "/xiaolu/",
+  base: "/luxiao-weblog/",
   locales: {
     "/": {
       lang: "zh-CN",
