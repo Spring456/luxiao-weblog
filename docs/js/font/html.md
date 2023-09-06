@@ -16,7 +16,7 @@
 ### meta标签的http-equiv属性
 ![meta标签的http-equiv属性](../../media/meta_http.png)
 ### link和@import
-![link和@import](../../media/link和@import.png)
+![link和@import](../../media/linkand@import.png)
 ### 图片的title属性和alt属性
 ![图片的title属性和alt属性](../../media/title_alt.png)
 ### 行内标签和块级标签
@@ -24,7 +24,7 @@
 ### BFC
 ![BFC](../../media/BFC.png)
 ### a标签
-![a标签](../../media/a标签.png)
+![a标签](../../media/a-link.png)
 ### img标签
 ![img标签](../../media/img.png)
 ### HTML单位
