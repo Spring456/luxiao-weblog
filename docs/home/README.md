@@ -1,7 +1,7 @@
-# Study-JavaScript 介绍
+# HTML/CSS 介绍
 
-::: tip 加入我们
-如果你也是一个学习爱好者,或者更好的笔记想要分享,可以<a href="https://github.com/2662419405/vuepress_admin/issues">加入我们</a>,留下你的联系方式,我们之后就会联系你
+::: HTML/CSS
+  总结HTML/CSS知识
 :::
 
 **整理这些文档的目的：**

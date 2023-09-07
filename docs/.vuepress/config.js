@@ -15,7 +15,7 @@ module.exports = {
     type: "blog",
     nav: [
       { text: "首页", link: "/", icon: "reco-home" },
-      { text: "前端基础", link: "/home/", icon: "reco-date" },
+      { text: "HTML/CSS", link: "/home/", icon: "reco-date" },
       { text: "JS知识", link: "/js/", icon: "reco-date" },
       { text: "框架知识", link: "/framework/", icon: "reco-date" },
       { text:'工具插件',link:'/tools/',icon:'reco-date'},
@@ -25,7 +25,7 @@ module.exports = {
     sidebar:{
       "/home/":[
         {
-          title: "前端基础",
+          title: "HTML/CSS",
           collapsable: true,
           children: [
             "fontEnd/css",
