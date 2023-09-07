@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>JS中小数运算和大整数精度丢失</title>
+    <meta name="generator" content="VuePress 1.9.8">
+    
+    <meta name="description" content="Welcome to your visit">
+    
+    <link rel="preload" href="/luxiao-weblog/assets/css/0.styles.6f40a625.css" as="style"><link rel="preload" href="/luxiao-weblog/assets/js/app.48ffb83b.js" as="script"><link rel="preload" href="/luxiao-weblog/assets/js/4.5bc18996.js" as="script"><link rel="preload" href="/luxiao-weblog/assets/js/1.35505c8e.js" as="script"><link rel="preload" href="/luxiao-weblog/assets/js/188.ca1e4d47.js" as="script"><link rel="prefetch" href="/luxiao-weblog/assets/js/10.c70c7c82.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/100.e21f890b.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/101.451eb4d8.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/102.5ac38aa9.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/103.07d46dc6.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/104.9b40b95a.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/105.4fa6ae1b.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/106.3e3cd107.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/107.5e6bf424.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/108.99235c60.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/109.4299e1c5.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/11.f2aacf2d.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/110.45f3c55b.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/111.4cb581a4.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/112.5d029c87.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/113.cfb414a8.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/114.b56e76a1.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/115.d0bfe122.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/116.1d7d9879.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/117.7da26f4f.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/118.3cd9e8f5.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/119.053a55c3.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/12.e6471581.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/120.86e772d4.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/121.1ec1189e.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/122.eada46f1.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/123.77ce4234.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/124.5ef024f1.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/125.fd729544.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/126.df1b52a5.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/127.b7743ea5.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/128.23d1e73a.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/129.f592ad92.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/13.04b4d5b1.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/130.3f314094.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/131.dc401537.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/132.9d96e882.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/133.d656a4f0.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/134.99990f99.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/135.55ddb004.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/136.d0cde0d8.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/137.4efe43c2.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/138.f94b34a4.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/139.b64a123d.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/14.e5aa5b89.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/140.3474ebdc.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/141.d92294bd.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/142.f4275c33.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/143.2632cfd5.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/144.5fb4f19e.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/145.6900e3ad.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/146.3f914b92.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/147.4fe11b00.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/148.49e61055.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/149.52210061.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/15.41988700.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/150.355cb4ce.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/151.cc4ecfe0.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/152.04d3209b.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/153.d2260a88.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/154.6257536a.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/155.0e32d3f8.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/156.6c03821f.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/157.21ecea80.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/158.2b8aeda2.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/159.09b3e3cb.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/16.005cec09.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/160.b97017fb.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/161.20f260c7.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/162.9798b990.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/163.8d91fa52.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/164.7e128c98.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/165.faaa698d.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/166.ba35d1a4.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/167.57cbc932.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/168.09d895ba.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/169.674b9e37.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/17.b3d19706.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/170.fd420ff1.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/171.3089c4e6.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/172.f4ff4996.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/173.3ddce3f8.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/174.15144eab.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/175.8f9388b2.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/176.d765fc34.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/177.a3410bd3.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/178.8386bf19.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/179.95fac659.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/18.694ae357.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/180.05ef35ba.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/181.8244b2b9.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/182.60231f38.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/183.c1d83bd3.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/184.cb744205.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/185.86e1f7da.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/186.aa6212e6.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/187.a3161976.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/189.bd1c029a.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/19.dbb6b74f.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/190.ecc8fc80.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/191.2ed1ad30.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/192.ebb9dca2.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/193.a98b43e2.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/194.999b51cd.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/195.5369a078.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/196.743ea78f.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/197.83551680.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/198.d3bbc5de.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/199.dc06299a.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/2.64f802ce.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/20.71928a8b.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/200.40959768.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/201.f83d3c79.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/202.d134b636.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/203.cce191b2.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/204.1f3fadc9.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/205.6f694c14.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/206.c5ddb59c.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/207.385cc41b.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/208.834a831b.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/209.c1d85b7e.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/21.dad834ad.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/210.6044ff58.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/211.64dca462.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/212.14df4e9d.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/213.223f1fa9.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/214.3dea9d43.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/215.9540a640.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/216.18887f88.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/217.c98227c8.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/218.5fb1df17.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/219.8e8e15bf.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/22.05b56e61.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/220.9e18dc6b.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/221.8c3d9f78.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/222.f20ed814.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/223.7d22efc4.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/224.889799c5.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/225.81ad75e8.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/226.261a6cdb.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/227.2227eae2.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/228.49032f7b.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/229.bb780aad.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/23.69bf5607.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/230.73e3d112.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/231.2dc8d349.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/232.00822b77.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/24.df3d3934.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/25.48671285.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/26.a4bee292.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/27.6497d06a.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/28.c6f8ca6d.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/29.90b50c3f.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/30.8cb44e67.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/31.d8f784bd.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/32.a1dec749.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/33.615b1dd8.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/34.c8e3b68e.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/35.d8b25200.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/36.ee2cac9b.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/37.c052bdc5.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/38.269f7b8e.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/39.caad95df.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/40.d9052572.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/41.0366d9fe.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/42.b5e1f3f2.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/43.b48d1793.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/44.34564726.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/45.2f2d6619.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/46.f6c04868.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/47.83449c3b.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/48.93fb0309.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/49.f1f27944.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/5.1a60742e.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/50.e8653661.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/51.bf4637b4.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/52.9b301221.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/53.f512fb8b.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/54.ab692446.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/55.70938a84.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/56.da057ba5.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/57.8ba66cfc.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/58.00783466.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/59.3d72a576.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/6.aa598943.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/60.f9247b99.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/61.4fa26e28.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/62.98007e35.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/63.323fdc58.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/64.987ad2e2.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/65.905da1bd.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/66.fba9590b.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/67.258a2c60.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/68.aaf00ca0.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/69.13b70244.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/7.c61ae977.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/70.cc75c361.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/71.265f85f3.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/72.fe63c299.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/73.6b02877f.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/74.ac8e9ad3.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/75.7dbaedae.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/76.adfccbae.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/77.f5bd39d6.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/78.53d5b8e3.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/79.2d9c0dd2.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/8.b2cad62c.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/80.3bbba4ff.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/81.bffedda3.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/82.01c1cfe6.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/83.cf848c10.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/84.1eb0c9b2.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/85.99e813c5.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/86.e25e9f58.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/87.0457b8c9.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/88.fed19160.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/89.062f8d5b.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/9.652e7379.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/90.cecd5e43.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/91.2aff4799.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/92.7043cda7.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/93.01b43a11.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/94.08e2368c.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/95.c7a6351d.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/96.45cf933e.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/97.2f2ac67d.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/98.265ba02a.js"><link rel="prefetch" href="/luxiao-weblog/assets/js/99.d2bd4b5a.js">
+    <link rel="stylesheet" href="/luxiao-weblog/assets/css/0.styles.6f40a625.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container" data-v-7dd95ae2><div data-v-7dd95ae2><div class="password-shadow password-wrapper-out" style="display:none;" data-v-59e6cb88 data-v-7dd95ae2 data-v-7dd95ae2><h3 class="title" data-v-59e6cb88></h3> <p class="description" data-v-59e6cb88>Welcome to your visit</p> <label id="box" class="inputBox" data-v-59e6cb88><input type="password" value="" data-v-59e6cb88> <span data-v-59e6cb88>Konck! Knock!</span> <button data-v-59e6cb88>OK</button></label> <div class="footer" data-v-59e6cb88><span data-v-59e6cb88><i class="iconfont reco-theme" data-v-59e6cb88></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-59e6cb88>vuePress-theme-reco</a></span> <span data-v-59e6cb88><i class="iconfont reco-copyright" data-v-59e6cb88></i> <a data-v-59e6cb88><!---->
+          
+        <!---->
+        2023
+      </a></span></div></div> <div class="hide" data-v-7dd95ae2><header class="navbar" data-v-7dd95ae2><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/luxiao-weblog/" class="home-link router-link-active"><img src="https://img01.anheyu.com/useruploads/113/2023/04/23/6444b7bfb2406.jpg" alt="" class="logo"> <!----></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/luxiao-weblog/" class="nav-link"><i class="iconfont reco-home"></i>
+  首页
+</a></div><div class="nav-item"><a href="/luxiao-weblog/home/" class="nav-link"><i class="iconfont reco-date"></i>
+  前端基础
+</a></div><div class="nav-item"><a href="/luxiao-weblog/js/" class="nav-link router-link-active"><i class="iconfont reco-date"></i>
+  JS知识
+</a></div><div class="nav-item"><a href="/luxiao-weblog/framework/" class="nav-link"><i class="iconfont reco-date"></i>
+  框架知识
+</a></div><div class="nav-item"><a href="/luxiao-weblog/tools/" class="nav-link"><i class="iconfont reco-date"></i>
+  工具插件
+</a></div><div class="nav-item"><a href="/luxiao-weblog/develop/" class="nav-link"><i class="iconfont reco-date"></i>
+  开发总结
+</a></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-7dd95ae2></div> <aside class="sidebar" data-v-7dd95ae2><div class="personal-info-wrapper" data-v-1fad0c41 data-v-7dd95ae2><!----> <!----> <div class="num" data-v-1fad0c41><div data-v-1fad0c41><h3 data-v-1fad0c41>213</h3> <h6 data-v-1fad0c41>文章</h6></div> <div data-v-1fad0c41><h3 data-v-1fad0c41>0</h3> <h6 data-v-1fad0c41>标签</h6></div></div> <ul class="social-links" data-v-1fad0c41></ul> <hr data-v-1fad0c41></div> <nav class="nav-links"><div class="nav-item"><a href="/luxiao-weblog/" class="nav-link"><i class="iconfont reco-home"></i>
+  首页
+</a></div><div class="nav-item"><a href="/luxiao-weblog/home/" class="nav-link"><i class="iconfont reco-date"></i>
+  前端基础
+</a></div><div class="nav-item"><a href="/luxiao-weblog/js/" class="nav-link router-link-active"><i class="iconfont reco-date"></i>
+  JS知识
+</a></div><div class="nav-item"><a href="/luxiao-weblog/framework/" class="nav-link"><i class="iconfont reco-date"></i>
+  框架知识
+</a></div><div class="nav-item"><a href="/luxiao-weblog/tools/" class="nav-link"><i class="iconfont reco-date"></i>
+  工具插件
+</a></div><div class="nav-item"><a href="/luxiao-weblog/develop/" class="nav-link"><i class="iconfont reco-date"></i>
+  开发总结
+</a></div> <!----></nav> <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>JS知识</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/luxiao-weblog/js/font/js.html" class="sidebar-link">JS基础语法</a></li><li><a href="/luxiao-weblog/js/font/arrr.html" class="sidebar-link">数组方法</a></li><li><a href="/luxiao-weblog/js/font/windows.html" class="sidebar-link">概述</a></li><li><a href="/luxiao-weblog/js/font/createObject.html" class="sidebar-link">JavaScript创建对象</a></li><li><a href="/luxiao-weblog/js/font/knowtips.html" class="sidebar-link">关于JS的一些小知识</a></li><li><a href="/luxiao-weblog/js/font/pushState.html" class="sidebar-link">history.pushState()和 history.replaceState()方法</a></li><li><a href="/luxiao-weblog/js/font/event.html" class="sidebar-link">JS事件机制</a></li><li><a href="/luxiao-weblog/js/font/jiagou.html" class="sidebar-link">简单聊聊前端架构</a></li><li><a href="/luxiao-weblog/js/font/decimal.html" aria-current="page" class="active sidebar-link">JS中小数运算和大整数精度丢失</a></li><li><a href="/luxiao-weblog/js/font/applyColor.html" class="sidebar-link">浏览器相关——浏览器页面渲染机制</a></li><li><a href="/luxiao-weblog/js/font/optimize.html" class="sidebar-link">前端性能优化方案</a></li><li><a href="/luxiao-weblog/js/font/varib.html" class="sidebar-link">详解JS变量提升和函数提升</a></li><li><a href="/luxiao-weblog/js/font/actionScope.html" class="sidebar-link">理解JS中的执行环境和作用域</a></li><li><a href="/luxiao-weblog/js/font/copy.html" class="sidebar-link">深浅拷贝</a></li><li><a href="/luxiao-weblog/js/font/new.html" class="sidebar-link">new操作符做了什么</a></li><li><a href="/luxiao-weblog/js/font/thiscall.html" class="sidebar-link">搞懂this指向</a></li><li><a href="/luxiao-weblog/js/font/this.html" class="sidebar-link">call、apply、bind理解</a></li><li><a href="/luxiao-weblog/js/font/collection.html" class="sidebar-link">一、什么是垃圾回收</a></li><li><a href="/luxiao-weblog/js/font/closure.html" class="sidebar-link">事件循环机制（JS渲染机制）</a></li><li><a href="/luxiao-weblog/js/font/prototype.html" class="sidebar-link">JS进阶之原型和原型链(_proto_和prototype)</a></li><li><a href="/luxiao-weblog/js/font/bibao.html" class="sidebar-link">JS中的闭包</a></li><li><a href="/luxiao-weblog/js/font/objfront.html" class="sidebar-link">简单理解面向对象编程和面向过程编程（1）</a></li><li><a href="/luxiao-weblog/js/font/objfront1.html" class="sidebar-link">理解JS中的面向对象编程——封装(2)</a></li><li><a href="/luxiao-weblog/js/font/objfront2.html" class="sidebar-link">理解JS中的面向对象编程(3)——继承</a></li><li><a href="/luxiao-weblog/js/font/arrgao.html" class="sidebar-link">数组的高级方法</a></li><li><a href="/luxiao-weblog/js/font/debounce.html" class="sidebar-link">函数防抖和节流</a></li><li><a href="/luxiao-weblog/js/font/promise.html" class="sidebar-link">详解promise</a></li><li><a href="/luxiao-weblog/js/font/awaitasync.html" class="sidebar-link">async/await有什么用？</a></li></ul></section></li></ul> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-59e6cb88 data-v-7dd95ae2><h3 class="title" data-v-59e6cb88></h3> <!----> <label id="box" class="inputBox" data-v-59e6cb88><input type="password" value="" data-v-59e6cb88> <span data-v-59e6cb88>Konck! Knock!</span> <button data-v-59e6cb88>OK</button></label> <div class="footer" data-v-59e6cb88><span data-v-59e6cb88><i class="iconfont reco-theme" data-v-59e6cb88></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-59e6cb88>vuePress-theme-reco</a></span> <span data-v-59e6cb88><i class="iconfont reco-copyright" data-v-59e6cb88></i> <a data-v-59e6cb88><!---->
+          
+        <!---->
+        2023
+      </a></span></div></div> <div data-v-7dd95ae2><div data-v-7dd95ae2><main class="page"><section style="display:;"><div class="page-title"><h1 class="title">JS中小数运算和大整数精度丢失</h1> <div data-v-8a445198><!----> <!----> <!----> <!----></div></div> <div class="theme-reco-content content__default"><h2 id="js中小数运算和大整数精度丢失"><a href="#js中小数运算和大整数精度丢失" class="header-anchor">#</a> JS中小数运算和大整数精度丢失</h2> <h3 id="奇怪的问题-浮点数运算或大数的精度问题"><a href="#奇怪的问题-浮点数运算或大数的精度问题" class="header-anchor">#</a> 奇怪的问题--浮点数运算或大数的精度问题</h3> <p>在JS中，对小数或较大的数进行运行操作会出现不可预计的问题，比如：</p> <div class="language- extra-class"><pre class="language-text"><code>0.1+0.2=0.30000000000000004
+
+0.1+0.7=0.7999999999999999
+
+1.2-0.1=1.0999999999999999
+
+0.5-0.4=0.09999999999999998
+
+19.19 * 100=1919.0000000000002
+
+0.3/0.2=1.4999999999999998
+
+console.log(10000000000000011) //10000000000000012
+console.log(0.1000000000000001) 
+// 0.1000000000000001 (中间14个0，会打印出本身)
+console.log(0.10000000000000001) 
+// 0.1 (中间15个0，js会认为两个值足够近似，所以输出0.1)
+</code></pre></div><p>刚接触到这个问题的时候，着实令人头大，这是为什么？为什么会发生这样的事情！以后在运算的时候应该怎么办？</p> <p>原因：</p> <p><code>1、进制转换。</code>在计算机中，数字无论是整数还是浮点数都是以多位二进制的方式进行存储的。在呈现结果时才转换成十进制。0.1 和 0.2 都会被转成二进制后无限循环 ，但是 js 采用的 IEEE 754 二进制浮点运算，最大可以存储 53 位有效数字，于是大于 53 位后面的会全部截掉，将导致精度丢失。</p> <p><code>2、对阶运算。</code>由于指数位数不相同，运算时需要对阶运算，阶小的尾数要根据阶差来右移（0舍1入），尾数位移时可能会发生数丢失的情况，影响精度。</p> <p>还是上面的例子：0.1+0.2，先分别将0.1和0.2转换为二进制，然后再进行相加，相加得到的结果转为十进制。</p> <div class="language- extra-class"><pre class="language-text"><code>// 0.1 转化为二进制
+0.0 0011 0011 0011 0011...(0011循环）
+
+// 0.2 转化为二进制
+0.0011 0011 0011 0011 0011...(0011循环）
+</code></pre></div><p>由于0.1这样的数值用二进制是无法整除的，最后算下来会是 0.000110011…由于存储空间有限，最后计算机会舍弃后面的数值，所以我们最后就只能得到一个近似值。在JS中如果出现这种无法整除的小数就会取一个近似值，在js中如果这个近似值足够近似，那么js就会认为他就是那个值。</p> <p>还是上面的例子中，由于0.1转换成二进制时是无限循环的，所以在计算机中0.1只能存储成一个近似值。</p> <p>在js中，除了那些能表示成 x/2^n 的数可以被精确表示以外，其余小数都是以近似值得方式存在的。</p> <p>在0.1 + 0.2这个式子中，0.1和0.2都是近似表示的，在他们相加的时候，两个近似值进行了计算，导致最后得到的值是0.30000000000000004，此时对于JS来说，其不够近似于0.3，于是就出现了0.1 + 0.2 != 0.3 这个现象。当然，也并非所有的近似值相加都得不到正确的结果。</p> <p>对于IEEE 754和二进制运行可以参考：https://juejin.cn/post/6981094321759977479</p> <p><a href="https://juejin.cn/post/7041546152994406430" target="_blank" rel="noopener noreferrer">十进制转二进制<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <h3 id="如何解决"><a href="#如何解决" class="header-anchor">#</a> 如何解决</h3> <p><strong>1、浮点数变成整数再计算</strong></p> <p>将浮点数变成整数再计算，整数是可以精确表示的</p> <div class="language- extra-class"><pre class="language-text"><code>//0.1+0.2
+
+console.log((0.1*10+0.2*10)/10)//0.3
+</code></pre></div><p>但这种方法（乘以10的N次幂，再除以10的n次幂）并不是万能的，就比如上面19.19*10并不等与1919一样。所以这种方法并不保险。</p> <p><strong>2、使用number对象的toFixed方法</strong></p> <p>toFixed方法可以指定运算结果的小数点后的指定位数的数字，使保留一位小数就是toFixed(1)</p> <div class="language- extra-class"><pre class="language-text"><code>//let x=(0.1+0.2).toFixed(1)
+//因为使用toFixed方法将number类型转换成了字符串类型
+//，所以使用parseFloat将字符串转回number类型
+let x=parseFloat((0.1+0.2).toFixed(1));
+console.log(x===0.3);
+</code></pre></div><p>使用toFixed()方法可以把Number四舍五入为指定小数位数的数字。但这种方法也并不是万无一失的。比如下面的例子：</p> <div class="language- extra-class"><pre class="language-text"><code>1.35.toFixed(1) // 1.4 正确
+1.335.toFixed(2) // 1.33  错误
+1.3335.toFixed(3) // 1.333 错误
+1.33335.toFixed(4) // 1.3334 正确
+1.333335.toFixed(5)  // 1.33333 错误
+1.3333335.toFixed(6) // 1.333333 错误
+</code></pre></div><p>可以看到使用toFixed()方法，也并不是最好的。</p> <p><strong>3、将浮点数toString后indexOf('.')</strong></p> <p>我们可以将浮点数toString后indexOf('.')，记录一下小数位的长度，然后将小数点抹掉</p> <div class="language- extra-class"><pre class="language-text"><code> /*** method **
+ *  add / subtract / multiply /divide
+ * floatObj.add(0.1, 0.2) &gt;&gt; 0.3
+ * floatObj.multiply(19.9, 100) &gt;&gt; 1990
+ *
+ */
+var floatObj = function() {
+
+    /*
+     * 判断obj是否为一个整数
+     */
+    function isInteger(obj) {
+        return Math.floor(obj) === obj
+    }
+
+    /*
+     * 将一个浮点数转成整数，返回整数和倍数。如 3.14 &gt;&gt; 314，倍数是 100
+     * @param floatNum {number} 小数
+     * @return {object}
+     *   {times:100, num: 314}
+     */
+    function toInteger(floatNum) {
+        var ret = {times: 1, num: 0}
+        if (isInteger(floatNum)) {
+            ret.num = floatNum
+            return ret
+        }
+        var strfi  = floatNum + ''
+        var dotPos = strfi.indexOf('.')
+        var len    = strfi.substr(dotPos+1).length
+        var times  = Math.pow(10, len)
+        var intNum = Number(floatNum.toString().replace('.',''))
+        ret.times  = times
+        ret.num    = intNum
+        return ret
+    }
+
+    /*
+     * 核心方法，实现加减乘除运算，确保不丢失精度
+     * 思路：把小数放大为整数（乘），进行算术运算，再缩小为小数（除）
+     *
+     * @param a {number} 运算数1
+     * @param b {number} 运算数2
+     * @param digits {number} 精度，保留的小数点数，比如 2, 即保留为两位小数
+     * @param op {string} 运算类型，有加减乘除（add/subtract/multiply/divide）
+     *
+     */
+    function operation(a, b, digits, op) {
+        var o1 = toInteger(a)
+        var o2 = toInteger(b)
+        var n1 = o1.num
+        var n2 = o2.num
+        var t1 = o1.times
+        var t2 = o2.times
+        var max = t1 &gt; t2 ? t1 : t2
+        var result = null
+        switch (op) {
+            case 'add':
+                if (t1 === t2) { // 两个小数位数相同
+                    result = n1 + n2
+                } else if (t1 &gt; t2) { // o1 小数位 大于 o2
+                    result = n1 + n2 * (t1 / t2)
+                } else { // o1 小数位 小于 o2
+                    result = n1 * (t2 / t1) + n2
+                }
+                return result / max
+            case 'subtract':
+                if (t1 === t2) {
+                    result = n1 - n2
+                } else if (t1 &gt; t2) {
+                    result = n1 - n2 * (t1 / t2)
+                } else {
+                    result = n1 * (t2 / t1) - n2
+                }
+                return result / max
+            case 'multiply':
+                result = (n1 * n2) / (t1 * t2)
+                return result
+            case 'divide':
+                result = (n1 / n2) * (t2 / t1)
+                return result
+        }
+    }
+
+    // 加减乘除的四个接口
+    function add(a, b, digits) {
+        return operation(a, b, digits, 'add')
+    }
+    function subtract(a, b, digits) {
+        return operation(a, b, digits, 'subtract')
+    }
+    function multiply(a, b, digits) {
+        return operation(a, b, digits, 'multiply')
+    }
+    function divide(a, b, digits) {
+        return operation(a, b, digits, 'divide')
+    }
+
+    // exports
+    return {
+        add: add,
+        subtract: subtract,
+        multiply: multiply,
+        divide: divide
+    }
+}();
+</code></pre></div><p>此方法来自：https://juejin.cn/post/6844903572979597319</p> <p><strong>4、使用第三方库</strong></p> <p>目前解决这一问题的第三方库有：bignumber</p> <p>地址：<a href="https://github.com/MikeMcl/bignumber.js" target="_blank" rel="noopener noreferrer">bignumber<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <p><strong>5、使用 Number.EPSILON 误差范围。</strong></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">function</span> <span class="token function">isEqual</span><span class="token punctuation">(</span><span class="token parameter">a<span class="token punctuation">,</span> b</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> Math<span class="token punctuation">.</span><span class="token function">abs</span><span class="token punctuation">(</span>a <span class="token operator">-</span> b<span class="token punctuation">)</span> <span class="token operator">&lt;</span> Number<span class="token punctuation">.</span><span class="token constant">EPSILON</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">isEqual</span><span class="token punctuation">(</span><span class="token number">0.1</span> <span class="token operator">+</span> <span class="token number">0.2</span><span class="token punctuation">,</span> <span class="token number">0.3</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// true</span>
+</code></pre></div></div></section> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev"><a href="/luxiao-weblog/js/font/jiagou.html" class="prev">
+          简单聊聊前端架构
+        </a></span> <span class="next"><a href="/luxiao-weblog/js/font/applyColor.html">
+          浏览器相关——浏览器页面渲染机制
+        </a></span></p></div> <div class="comments-wrapper"><!----></div></main></div> <!----></div> <ul class="sub-sidebar sub-sidebar-wrapper" style="width:12rem;" data-v-b57cc07c data-v-7dd95ae2><li class="level-2" data-v-b57cc07c><a href="/luxiao-weblog/js/font/decimal.html#js中小数运算和大整数精度丢失" class="sidebar-link reco-side-js中小数运算和大整数精度丢失" data-v-b57cc07c>JS中小数运算和大整数精度丢失</a></li><li class="level-3" data-v-b57cc07c><a href="/luxiao-weblog/js/font/decimal.html#奇怪的问题-浮点数运算或大数的精度问题" class="sidebar-link reco-side-奇怪的问题-浮点数运算或大数的精度问题" data-v-b57cc07c>奇怪的问题--浮点数运算或大数的精度问题</a></li><li class="level-3" data-v-b57cc07c><a href="/luxiao-weblog/js/font/decimal.html#如何解决" class="sidebar-link reco-side-如何解决" data-v-b57cc07c>如何解决</a></li></ul></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div></div></div>
+    <script src="/luxiao-weblog/assets/js/app.48ffb83b.js" defer></script><script src="/luxiao-weblog/assets/js/4.5bc18996.js" defer></script><script src="/luxiao-weblog/assets/js/1.35505c8e.js" defer></script><script src="/luxiao-weblog/assets/js/188.ca1e4d47.js" defer></script>
+  </body>
+</html>
