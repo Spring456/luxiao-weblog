@@ -79,7 +79,7 @@ module.exports = myLoader
 
 用图例来表示就是：
 
-![loader](../media/webapck_loader.png)
+![loader](../../media/webapck_loader.png)
 
 ### 创建一个loader
 

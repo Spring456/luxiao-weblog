@@ -1,6 +1,6 @@
 ## vue中的组件
 
-![vue组件](../../media/Vue%E7%BB%84%E4%BB%B6.png)
+![vue组件](../../media/VueComponent.png)
 
 ### 组件注册方式
 
