@@ -1,6 +1,6 @@
 module.exports = {
   title: "",
-  description: "Welcome to your visit",
+  description: "Welcome to my visit",
   theme: "reco",
   base: "/luxiao-weblog/",
   locales: {
@@ -43,7 +43,6 @@ module.exports = {
       "/js/":[
         {
           title: "JS知识",
-          collapsable: true,
           children: [
             "font/js",
             "font/arrr",
